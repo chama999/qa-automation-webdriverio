@@ -1,0 +1,4 @@
+npm run wdio
+npx allure generate --clean allure-results
+allure open
+

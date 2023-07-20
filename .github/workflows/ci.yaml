@@ -6,7 +6,6 @@ on:
         required: false
         type: choice
         options:
-        - linux
         - ubuntu-latest
         - macOS-latest
         - windows-latest
@@ -19,7 +18,7 @@ on:
 jobs:
   build:
     name: Probando GithubActions3
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
         - name: Checkout from repo
           uses: actions/checkout@v3
