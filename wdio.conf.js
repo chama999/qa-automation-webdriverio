@@ -279,11 +279,11 @@ export const config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {object}             context          Cucumber World object
      */
-     afterStep: async function (step, scenario, result, context) {
-        if (error) {
-            await browser.takeScreenshot();
-        }
-     },
+     //afterStep: async function (step, scenario, result, context) {
+     //   if (error) {
+     //       await browser.takeScreenshot();
+     //   }
+     //},
     /**
      *
      * Runs after a Cucumber Scenario.
@@ -339,6 +339,7 @@ export const config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
+    /*
      onComplete: function(exitCode, config, capabilities, results) {
         const reportError = new Error('Could not generate Allure report')
         const generation = allure(['generate', 'allure-results', '--clean'])
@@ -359,6 +360,7 @@ export const config = {
             })
         })
     },
+    */
     /**
     * Gets executed when a refresh happens.
     * @param {string} oldSessionId session ID of the old session
