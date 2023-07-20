@@ -17,19 +17,15 @@ on:
     branches: 
       - master
 jobs:
-  strategy:
-      matrix:
-        os: [ubuntu-latest, linux-latest, windows-latest]
-        node-version: [20]
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     steps:
         - name: Checkout from repo
           uses: actions/checkout@v3
         - name: Installing Node
           uses: actions/setup-node@v3
           with:
-            node-version: ${{ matrix.version }}
+            node-version: 20
         - name: Install dependencies
           run: npm install
         - name: Running tests
