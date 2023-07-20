@@ -18,6 +18,7 @@ on:
       - master
 jobs:
   build:
+    name: Probando GithubActions3
     runs-on: windows-latest
     steps:
         - name: Checkout from repo
