@@ -25,11 +25,11 @@ jobs:
         - name: Installing Node
           uses: actions/setup-node@v3
           with:
-            node-version: 20
+            node-version: latest
         - name: Install dependencies
           run: npm install
         - name: Running tests
-          run: npm run test:local
+          run: npm run wdio
         - uses: actions/upload-artifact@v1
           with:
             name: AllureReport
