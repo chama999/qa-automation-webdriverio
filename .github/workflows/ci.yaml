@@ -1,0 +1,39 @@
+name: Testing CI with Github Actions
+on:
+  workflow_dispatch:
+    inputs:
+      chosen-os:
+        required: false
+        type: choice
+        options:
+        - linux
+        - ubuntu-latest
+        - macOS-latest
+        - windows-latest
+  push:
+    branches: 
+      - master
+  pull_request:
+    branches: 
+      - master
+jobs:
+  strategy:
+      matrix:
+        os: [ubuntu-latest, linux-latest, windows-latest]
+        node-version: [20]
+  build:
+    runs-on: ${{ matrix.os }}
+    steps:
+        - name: Checkout from repo
+          uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: ${{ matrix.version }}
+        - name: Install dependencies
+          run: npm install
+        - name: Running tests
+          run: npm run test:local
+        - uses: actions/upload-artifact@v1
+          with:
+            name: AllureReport
+            path: .\allure-report
